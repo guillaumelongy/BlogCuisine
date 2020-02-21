@@ -1,42 +1,27 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}{% endblock %}
 
 {% block body %}
-<div class="jumbotron"  style="text-align:center">
-  <img class="img-fluid" alt="Responsive image" src="{{ asset ('/images/header03.jpg') }}" width="800"></img>
-</div>
 
-    <h1>Recette index</h1>
+<div class="container">
+    
         <div class="row">
-            
-
-
-        
-
-        {% for recette in recettes %}
-        <div class="col-sm-4">
-            <div class="card-columns">
-          <div class="card" style="width: 400px;">
-            <img class="img-thumbnail" src="{{ asset('/images/' ~ recette.photo) }}" width="80%" alt="photo {{ recette.titre }}" style="width:80%">
-            <h3 class="card-title"><b>{{ recette.titre }}</b></h3>
-                <div class="card-body">
-              
-              <p class="card-text">{{ recette.ingredients }}</p>
-              <p class="card-text">{{ recette.description }}</p>
-              <a href="#" class="btn btn-primary">Voir les photos de la recette</a>
+          {% for recette in recettes %}
+            <div class="col-md-4">
+                <div class="card">                
+                  <img class="img-thumbnail" src="{{ asset('/images/' ~ recette.photo) }}" alt="photo {{ recette.titre }}">
+                    <h3 class="card-title"><b>{{ recette.titre }}</b></h3> 
+                      <a href="{{ path ('recette_show', {id : recette.id})}}" class="btn btn-primary" >Voir la recette</a>
                 </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-            
+            </div>          
+          {% endfor %} 
         </div>
 
-        </tbody>
-    </table>
+    
 
-    <a href="{{ path('recette_new') }}">Create new</a>
+
+
+
+  </div>
 {% endblock %}

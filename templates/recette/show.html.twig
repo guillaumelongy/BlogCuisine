@@ -3,18 +3,11 @@
 {% block title %}Recette{% endblock %}
 
 {% block body %}
-    <h1>Recette</h1>
-
+   
+<h1>{{ recette.titre }}</h1>
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recette.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ recette.titre }}</td>
-            </tr>
+
             <tr>
                 <th>Ingredients</th>
                 <td>{{ recette.ingredients }}</td>
@@ -31,6 +24,8 @@
     </table>
 
     <a href="{{ path('recette_index') }}">back to list</a>
+
+    <hr>
 
     <a href="{{ path('recette_edit', {'id': recette.id}) }}">edit</a>
 
